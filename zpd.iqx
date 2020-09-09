@@ -1,0 +1,1212 @@
+﻿<data>
+/ format = tab
+</data>
+
+<shape erasechar>
+/ color = (255, 255, 255)
+/ position = (50, 50)
+/ shape = rectangle
+/ size = (1000, 1000)
+/ erase = false
+</shape>
+
+
+******************************read in chinese characters ******************************
+
+<textbox uniqueCode>
+/ caption="Your unique confirmation code is AWETBW920. Please record this code as well as typing it below."
+</textbox>
+
+<textbox workerID>
+/ caption="In the textbox below, type your MTurk worker ID."
+</textbox>
+
+<surveypage mturk>
+/ questions=[1=uniqueCode; 2=workerID]
+</surveypage>
+
+
+<block mturk>
+/ trials=[1=mturk]
+</block>
+
+<trial stop>
+/ validresponse = ("q") 
+/ stimulusframes = [1=stop]
+</trial>
+
+
+<text stop>  
+/ numitems = 1
+/ items = ("Thank you for participating in the study. Please wait for the experimenter")
+/ font = ("Times New Roman", -24, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ position = (50, 15)
+</text>
+<trial wait>
+/ validresponse = ("P") 
+/ stimulusframes = [1=wait]
+</trial>
+
+
+// set a: items 1 to 3
+<list set_a>
+/ items = (1,2,3)
+</list>
+
+// set b: items 4 to 6
+<list set_b>
+/ items = (4,5,6)
+</list>
+
+// set c: items 7 to 9
+<list set_c>
+/ items = (7,8,9)
+</list>
+
+// set d: items 10 to 12
+<list set_d>
+/ items = (10,11,12)
+</list>
+
+<item setitems>
+/ 1 = "character9.jpg"
+/ 2 = "character9down.jpg"
+/ 3 = "character9up.jpg"
+
+/ 4 = "character8.jpg"
+/ 5 = "character8down.jpg"
+/ 6 = "character8up.jpg"
+
+/ 7 = "character7.jpg"
+/ 8 = "character7down.jpg"
+/ 9 = "character7up.jpg"
+
+/ 10 = "character6.jpg"
+/ 11 = "character6down.jpg"
+/ 12 = "character6up.jpg"
+</item>
+
+
+<picture correctstim>
+/ items = setitems
+/ select = list.setlist.nextvalue
+/ size=(50%, 50%)
+/ position = (50,50)
+</picture>
+
+
+<picture incorrectstim>
+/ items = setitems
+/ select = list.setlist.nextvalue
+
+/ size=(50%, 50%)
+/ position = (50,50)
+</picture>
+
+<picture mixedstim>
+/ items = setitems
+/ select = list.setlist.nextvalue
+
+/ size=(50%, 50%)
+/ position = (50,50)
+</picture>
+
+<list setnumbers>
+/ items = (1,2,3,4)
+/ selectionrate = always
+</list>
+
+<list setlist>
+/ items = (list.set_a.nextvalue, list.set_b.nextvalue, list.set_c.nextvalue, list.set_d.nextvalue)
+/ selectionmode = values.setnumber
+</list>
+
+
+<block stop>
+/ trials = [1=stop]
+</block>
+
+
+<values>
+/ setnumber = 1
+/ correctset = 1
+/ incorrectset = 1
+/ mixedset = 1
+</values>
+
+<text trialinfo>
+/ items = ("<%script.currenttrial%>")
+
+/ position = (50%, 10%)
+</text>
+<block wait>
+/ bgstim = (wait)
+/ trials = [1 = wait]
+</block>
+
+<text wait>  
+/ numitems = 1
+/ items = ("Please wait for the experimenter")
+/ font = ("Times New Roman", -24, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ position = (50, 15)
+</text>
+
+<page consent>
+UNIVERSITY OF WISCONSIN-MADISON 
+^^^
+Research Participant Information and Consent Form 
+^
+Title of the Study: Perceptual Categorization and Affect
+^
+Point of Contact: William Cox (email: william.cox@wisc.edu)
+^
+Principal Investigator: William Cox (email: william.cox@wisc.edu) 
+^^
+DESCRIPTION OF THE RESEARCH 
+You are invited to participate in a research study about how people perceive and categorize different stimuli. Specifically, we are interested in how people feel when presented with different images. The purpose of the research is to pretest different images that we will be using in an upcoming study. This research will be conducted online. WHAT WILL MY PARTICIPATION INVOLVE? 
+You will be asked to download a browser plugin to run the program. You will be asked to complete a brief computer survey in which you will be asked to rate and/or group different pictures using a variety of criteria. In the second task, you will be presented with pictures of zoomed-in stimuli and asked to choose if you think it is a picture of x or y.   Your participation will last approximately 30 minutes and will consist of just this 1 session. 
+^^ 
+ARE THERE ANY RISKS TO ME? 
+There is always a minimal risk of breach of confidentiality.  
+^^
+ARE THERE ANY BENEFITS TO ME? 
+There are no direct benefits to you from participation in this study. 
+^^
+COMPENSATION 
+You will be compensated with $3 towards your Mturk account after the completion of the study.  
+^^
+HOW WILL MY CONFIDENTIALITY BE PROTECTED? 
+While there will probably be publications as a result of this study, your name will not be used. Only group characteristics will be published.  All identifiable data are stored securely on a username and password protected database. After publication, the de-identified data will be shared with other researchers through an online data library. 
+^^
+WHOM SHOULD I CONTACT IF I HAVE QUESTIONS? 
+You may ask any questions about the research at any time. If you have questions about the research after you leave today you should contact the researcher William Cox at William.cox@wisc.edu. 
+If you have questions about your rights as a research subject you should contact the Social & Behavioral Science IRB at (608) 263-2320. 
+Your participation is completely voluntary. If you decide not to participate or to withdraw from the study it will have no effect on your grade in this class. 
+^^
+CLICKING ACCEPT
+^^
+If you wish to have a copy of the consent, please print this form now before continuing. By clicking “K”, you indicate that you voluntarily agree to participate in this study and that you understand the information in this consent form. Click below to consent to participate.  
+
+
+</page> 
+
+<block consent>
+/ preinstructions= (consent)
+</block>
+
+
+
+
+<picture all4characters>  
+/ numitems = 12
+/ items = all4characters
+/ resetinterval = 1
+/ select = noreplacenorepeat
+/ size=(50%, 50%)
+/ position = (50, 50)
+</picture>
+
+<item all4characters>
+/ 1 = "character9.jpg"
+/ 2 = "character9down.jpg"
+/ 3 = "character9up.jpg"
+
+/ 4 = "character8.jpg"
+/ 5 = "character8down.jpg"
+/ 6 = "character8up.jpg"
+
+/ 7 = "character7.jpg"
+/ 8 = "character7down.jpg"
+/ 9 = "character7up.jpg"
+
+/ 10 = "character6.jpg"
+/ 11 = "character6down.jpg"
+/ 12 = "character6up.jpg"
+</item>
+
+
+<picture zoomed>  
+/ numitems = 143
+/ items = zoomed
+/ resetinterval = 0
+/ size=(80%, 80%)
+/ select = noreplacenorepeat
+
+</picture>
+
+<item zoomed>
+/1="acornwood.wood_T.jpg"
+/2="acronwoodfloor.acron_T.jpeg"
+/3="adcar.ad.JPG"
+/4="baffalocarpet.carpet.JPG"
+/5="bagumbrella.umbrella_T.jpeg"
+/6="bamboosucculent.succulent_T.jpeg"
+/7="birdwhiteflower.bird_T.jpeg"
+/8="bisonmountain.bison.JPG"
+/9="blanketpainting.painting_T.jpeg"
+/10="blanketsweater.blanket.JPG"
+/11="bloodjuice.juice.JPG"
+/12="booksky.book_T.jpeg"
+/13="booksky.sky_T.jpeg"
+/14="breadrock.bread.JPG"
+/15="browncoatmonkey.browncoat_T.jpeg"
+/16="browniedirt.brownie.JPG"
+/17="camellegbone.camel_T.jpeg"
+/18="candlesoap.candle_T.jpeg"
+/19="candyball.ball_T.jpeg"
+/20="carchair.car_T.jpg"
+/21="carchair.chair_T.jpg"
+/23="carfork.fork_T.jpeg"
+/24="catcarpet.cat_T.jpeg"
+/25="caterpillarmonkey.monkey_T.jpeg"
+/26="catwolf.cat.JPG"
+/27="chairketchup.chair_T.jpeg"
+/28="chairpill.pill_T.jpeg"
+/29="chairpot.chair_T.jpeg"
+/30="cheesesoap.soap_T.jpeg"
+/31="cherrylollipop.lollipop_T.jpeg"
+/32="clothcone.cone_T.jpg"
+/33="clownnosecherry.cherry_T.jpeg"
+/34="clownnosetomato.clownnose_T.jpeg"
+/35="coconutonion.coconut_T.jpeg"
+/36="coconutonion.onion_T.jpeg"
+/37="coffeesteak.coffee_T.jpeg"
+/38="coffeetea.tea_T.jpg"
+/39="couchshoe.couch.JPG"
+/40="crystaleye.eye_T.jpeg"
+/41="crystalmoon.crystal_T.jpeg"
+/42="crystalwater.crystal_T.jpg"
+/43="cupcakeicecream.icecream_T.jpeg"
+/44="cupcar.cup_T.jpeg"
+/45="denimflower.denim_T.jpeg"
+/46="dogblanket.blanket_T.jpeg"
+/47="dogreindeer.dog_T.jpg"
+/48="doorframestairwell.stairwell.JPG"
+/49="dragonfruitpineapple.dragonfruit_T.jpeg"
+/50="dreadssheep.sheep_T.jpeg"
+/51="dressdiaper.diaper.JPG"
+/52="drinkcleanser.cleanser_T.jpeg"
+/53="drinkcleanser.drink_T.jpeg"
+/54="duckelephant.duck_T.jpeg"
+/55="durianpineapple.pineapple_T.jpeg"
+/56="dusterboa.boa_T.jpeg"
+/57="eggcheese.egg_T.jpg"
+/58="elephantboots.boots_T.jpeg"
+/59="fireworkgalaxy.galaxy_Tjpeg.jpg"
+/60="fishcoral.coral_T.jpeg"
+/61="footflag.foot.JPG"
+/62="fudgesnickers.snickers_T.jpeg"
+/63="grapeblueberry.grape_T1.jpeg"
+/64="grapewatermelon.grape_T.jpeg"
+/65="gumballon.ballon_T.jpeg"
+/66="gumballon.gum_T.jpeg"
+/67="headbanddrink.headband.JPG"
+/68="horsehat.hat_T.jpeg"
+/69="iceglass.glass_T.jpeg"
+/70="icesalt.salt_T.jpeg"
+/71="iguanasnake.iguana_T.jpeg"
+/72="jacketcouch.couch_T.jpeg"
+/73="jackethammock.hammock.JPG"
+/74="juicepomegranate.juice_T.jpeg"
+/75="kiwiworm.worm_T.jpeg"
+/76="leafrhubarb.rhubarb_T.jpeg"
+/77="leatherbasketball.leather_T.jpeg"
+/78="leggingspeppers.leggings_T.jpeg"
+/79="lightgrill.light_T.jpg"
+/80="lightpaintingjellyfish.jellyfish_T.jpeg"
+/81="lipstickpaint.lipstick_T(1).jpeg"
+/82="lotionmilk.lotion_T.jpeg"
+/83="lotionmilk.milk_T.jpeg"
+/84="marshmallowcoconut.coconut_T.jpeg"
+/85="mathat.hat_T.jpeg"
+/86="milkpowder.milk.JPG"
+/87="moleculelight.molecule_T.jpeg"
+/88="mountainliondeer.deer.JPG"
+/89="mountainriver.mountain.JPG"
+/90="mountainssnowbank.snowbank_T.jpg"
+/91="oceanfrozenlake.frozenlake_T.jpeg"
+/92="oceanpainting.ocean_T.jpeg"
+/93="orangebeak.beak_T.jpeg"
+/94="orangebellpepper.bellpepper_T.jpeg"
+/95="oreowater.oreo_T.jpeg"
+/96="paintcanatmosphere.paintcan_T.jpeg"
+/97="paintcherry.paint_T.jpeg"
+/98="painteyeshadow.eyeshadow_T.jpeg"
+/99="pantscandle.candle_T.jpeg"
+/100="pantssunset.pants_T.jpeg"
+/101="pantstote.pants_T.jpeg"
+/102="pantstote.tote_T.jpeg"
+/103="papayasoap.soap_T.jpeg"
+/104="pineappleumbrella.umbrella.JPG"
+/105="poptartsoap.poptart_T.jpeg"
+/106="potatorocks.rocks_T.jpeg"
+/107="radishdragonfruit.dragonfruit_T.jpeg"
+/108="reflectioncup.cup_T.jpeg"
+/109="roadriver.river_T.jpeg"
+/110="rockbread.rock_T.jpeg"
+/111="rockcarpet.carpet.JPG"
+/112="rockpinecone.rock.JPG"
+/113="rubberduckmachine.rubberduck.JPG"
+/114="rubixcubesky.rubixcube_T.jpeg"
+/115="rugcouch.rug_T.jpeg"
+/116="saucercar.car_T.jpeg"
+/117="saucercar.saucer_T.jpeg"
+/118="shirtbed.shirt_T.jpeg"
+/119="shoeshat.hat_T.jpeg"
+/120="signstairwell.sign.JPG"
+/121="skateboardwall.skateboard_T.jpeg"
+/122="smokesky.smoke_T.jpeg"
+/123="smoothiepaint.smoothie_T.jpeg"
+/124="soapbutter.butter_T.jpeg"
+/125="soapcoffee.coffee_T(1).jpeg"
+/126="spaghettirope.rope_T.jpg"
+/127="sprinklesconfetti.sprinkles_T.jpg"
+/129="sprinklespins.pins_T(1).jpeg"
+/130="squirrelfox2.fox.JPG"
+/131="stonesteak.stone.JPG"
+/132="strawberrylips.lips.JPG"
+/133="streamerslight.light_T.jpg"
+/134="sunsetjacket.sunset_T.jpg"
+/135="sweaterblanket.sweater_T.jpeg"
+/136="toothbrushspoon.spoon.JPG"
+/137="toothbrushspoon.toothbrush.JPG"
+/138="umbrellajeans.umbrella.JPG"
+/139="waterfalldog.dog_T.jpg"
+/140="waterturquoise.turquoise_T.jpeg"
+/141="waterturquoise.water_T.jpeg"
+/142="waveice.wave_T.jpeg"
+/143="woodrug.rug.JPG" 
+</item>
+
+*****************************TEXT*****************************
+
+
+
+<shape eraseword>
+/ color = (255, 255, 255)
+/ shape = rectangle
+/ size = (700, 150)
+/ erase = false
+/ position = (50, 15)
+
+</shape>
+
+<instruct>  
+/ nextkey = ("k")
+/ prevkey = ("d")
+/ font = ("Times New Roman", -18, 400, 0, 34)
+/ nextlabel = "Press [k] to indicate continue"
+</instruct>
+
+
+
+*****************************INSTRUCTIONS*****************************
+
+
+<page instructTrainNF>
+Now you will be presented with a picture of an object that has been zoomed in. You will then be asked if you think it is a zoomed in picture of X or Y. At the very end, you will then be presented with feedback informing you how many of your answers were correct.
+</page>
+
+
+<page instructtest>
+In this next task you will be presented with a picture of an object that has been zoomed in.  
+You will then be asked if you think it is a zoomed in picture of X or Y. 
+After each trial you will immediately receive feedback on whether your guess was correct or not. 
+</page>
+
+<page instructtestNF>
+Now you will be presented with a picture of an object that has been zoomed in. Again, you will then be asked if you think it is a zoomed in picture of X or Y. 
+Sometimes you will get feedback about whether you were correct or incorrect, and sometimes you won’t.
+</page>
+
+<page instructtestPartial>
+Now you will be presented with a picture of an object that has been zoomed in. Again, you will then be asked if you think it is a zoomed in picture of X or Y. 
+After each set of trials, you will get feedback on how often you were correct.
+</page>
+
+<page instructfeeling>
+In this section of the study you will be presented with various novel pictographs and asked to rate each of them on a variety of measures. 
+</page>
+
+
+<page tmafterfeed> 
+Now you will rate some more profiles, then complete the experiment. HOWEVER, no feedback will be granted.^^
+REMEMBER: The two categories that you are to distinguish are:^^
+STRAIGHT vs. GAY.^^
+Press the ‘s' key if the stimulus is STRAIGHT.^^
+Press ‘g' key if the stimulus is GAY.^^
+</page>
+
+<page tm> 
+Now you will rate some more profiles, then complete the experiment.^^
+REMEMBER: The two categories that you are to distinguish are:^^
+STRAIGHT vs. GAY.^^
+Press the ‘s' key if the stimulus is STRAIGHT.^^
+Press ‘g' key if the stimulus is GAY.^^
+</page>
+
+*****************************QUESTIONS*****************************
+
+<textbox race>
+/ caption = "What is your race/ethnicity?"
+/ textboxsize = (50,10)
+/ required = true
+</textbox>
+
+<radiobuttons gender>
+/ caption = "What is your gender?"
+/ options = ("Male", "Female")
+</radiobuttons>
+
+<textbox sexorientation>
+/ caption = "What is your sexual orientation?"
+/ textboxsize = (50,10)
+/ required = true
+</textbox>
+
+<textbox timeinUS>
+/ caption = "How long have you lived in the U.S.?"
+/ textboxsize = (50,10)
+/ required = true
+</textbox>
+
+<surveypage demographics>
+/ questions = [1=race; 2=gender; 3=sexorientation; 4=timeinUS]
+/ showbackbutton = false
+</surveypage>
+
+
+
+<text likingText>
+/ numitems = 1
+/ items = liking
+/ size = (1000, 200)
+/ select = sequence
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+</text>
+
+<item liking>
+/1 = "Do you like or dislike this image?"
+</item>
+
+<likert likingLikert>
+/ numpoints=5
+/ stimulusframes = [1=all4characters]
+/ anchors= [1="Dislike"; 3="Neutral"; 5="Like" ]
+/ position= (50, 90)
+/ mouse=true
+</likert>
+
+<block liking>
+/ screencolor = (255, 255, 255)
+/ bgstim = (likingText)
+/ trials = [1-12 = likingLikert]
+</block> 
+
+
+<text seenText>
+/ numitems = 1
+/ items = seen
+/ size = (1000, 200)
+/ select = sequence
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+</text>
+
+<item seen>
+/1 = "Have you seen this character before?"
+</item>
+
+<likert seenLikert>
+/ numpoints=5
+/ stimulusframes = [1=all4characters]
+/ anchors= [1="No"; 3="Maybe"; 5="Yes" ]
+/ position= (50, 90)
+/ mouse=true
+</likert>
+
+<block seen>
+/ screencolor = (255, 255, 255)
+/ bgstim = (seenText)
+/ trials = [1-12 = seenLikert]
+/ preinstructions = sequence(page.consent, page.instructfeeling)
+</block> 
+
+
+<text pleasantText>
+/ numitems = 1
+/ items = pleasant
+/ size = (1000, 200)
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+</text>
+
+<item pleasant>
+/1 = "How pleasant do you think this image is?"
+</item>
+
+<slider pleasantSlider>
+/ labels=("Extremely unpleasant", "Extremely pleasant")
+/ range = (0, 100)
+/ increment = 1
+/ defaultresponse = 50
+/ txcolor = (0, 0, 0)
+
+/showticks = true
+/slidersize = (60%, 10%)
+/position = (0%, 75%)
+/defaultresponse = 0
+</slider>
+
+
+<surveypage pleasantQ>
+/ questions = [1=pleasantSlider]
+/ stimulusframes = [1=all4characters]
+/caption = "How pleasant do you think this image is?"
+/ showquestionnumbers = false
+/ showpagenumbers = false
+
+</surveypage>
+
+<block pleasant>
+/ screencolor = (255, 255, 255)
+/ bgstim = (pleasantText)
+/ trials = [1-12 = pleasantQ]
+/ preinstructions = (instructfeeling)
+</block> 
+
+<text feelingText>
+/ numitems = 1
+/ items = feeling
+/ size = (1000, 200)
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+</text>
+
+
+<item feeling>
+/1 = "Did this image leave you with a good or bad feeling?"
+</item> 
+
+
+<likert feelingLikert>
+/ numpoints=5
+/ stimulusframes = [1=all4characters]
+/ anchors= [1="Bad feeling"; 3="Neutral"; 5="Good feeling" ]
+/ position= (50, 90)
+/ mouse=true
+</likert>
+
+<block feeling>
+/ screencolor = (255, 255, 255)
+/ bgstim = (feelingText)
+/ trials = [1-12 = feelingLikert]
+</block> 
+
+<text correct60Text>
+/ numitems = 1
+/ items = ("Congratulations! You got 60% correct. Press [k] to move on.")
+/ size = (1000, 200)
+/ position = (50, 50)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ color = green
+</text>
+
+<trial correct60Trial>
+/ stimulusframes = [1=correct60Text]
+/ validresponse = (37)
+</trial>
+
+<block correct60Block>
+/ trials = [1=correct60Trial]
+</block>
+
+
+<text correct30Text>
+/ numitems = 1
+/ items = ("Sorry! You only got 30% correct. Press [k] to move on.")
+/ size = (1000, 200)
+/ position = (50, 50)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ color = red
+</text>
+
+<trial correct30Trial>
+/ stimulusframes = [1=correct30Text]
+/ validresponse = (37)
+</trial>
+
+<block correct30Block>
+/ trials = [1=correct30Trial]
+</block>
+
+text correct60Text>
+/ numitems = 1
+/ items = ("Congratulations! You were 60% correct. Press [k] to move on.")
+/ size = (1000, 200)
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+</text>
+
+<textbox name>
+/ caption = "So that we can give you your extra credit for completing this experiment, please type your first and last name in the box below."
+/ textboxsize = (50,10)
+/ required = true
+</textbox>
+
+<surveypage name>
+/ questions = [1=name]
+/ fontstyle = ("Arial", 14pt)
+/ responsefontstyle = ("Arial", 12pt)
+/ showbackbutton = false
+</surveypage>
+
+<survey name>
+/ screencolor = (255, 255, 255)
+/ pages = [1=name]
+</survey>
+
+<block names>
+/ trials = [1=name]
+</block>
+
+<text correctText>
+/ numitems = 1
+/ items = ("Congratulations! You are correct." )
+/ size = (1000, 200)
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/color=(green)
+/ txbgcolor = (255, 255, 255)
+/ erase = false
+</text>
+
+
+<text correct75Text>
+/ numitems = 1
+/ items = ("Congratulations! In that set, you got more than 75% correct." )
+/ size = (1000, 200)
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/color=(green)
+/ txbgcolor = (255, 255, 255)
+/ erase = false
+</text>
+
+<text correct25Text>
+/ numitems = 1
+/ items = ("Sorry! In that set, you got less than 25% correct." )
+/ size = (1000, 200)
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/color=(red)
+/ txbgcolor = (255, 255, 255)
+/ erase = false
+</text>
+
+<text correct50Text>
+/ numitems = 1
+/ items = ("In that set, you got about 50% correct." )
+/ size = (1000, 200)
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/color=(black)
+/ txbgcolor = (255, 255, 255)
+/ erase = false
+</text>
+
+<text incorrectText>
+/ numitems = 1
+/ items = ("Sorry! You are incorrect." )
+/ size = (1000, 200)
+/ position = (50, 25)
+/color=(red)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ erase = false
+</text>
+
+<text nofeedbackText>
+/ numitems = 1
+/ items = ("Response Recorded." )
+/ size = (1000, 200)
+/ position = (50, 25)
+/color=(black)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ erase = false
+</text>
+
+<text nofeedbacknocharText>
+/ numitems = 1
+/ items = ("Response Recorded. Press space to move on." )
+/ size = (1000, 200)
+/ position = (50, 25)
+/color=(black)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ erase = false
+</text>
+
+<text continueText>
+/ numitems = 1
+/ items = ("Press space to move on." )
+/ size = (1000, 200)
+/ position = (50, 91)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+</text>
+
+******************************************************************
+*****************************TRIALS****************************
+******************************************************************
+
+************************* 1 (Both Counterstereotypic with Feedback, Both No Feedback, Both Stereotypic with Feedback, Full Mix with Feedback)**************************
+*no feedback
+
+
+
+<trial TrainNF>  
+/ validkeys = ("k", "d")
+/ stimulusframes = [1=noreplace(zoomed)]
+
+</trial>
+
+trial correct60>  
+/ stimulusframes = [1=correct60Text]
+/ validkeys = ("k")
+
+
+
+</trial>
+
+
+
+<trial showCharacterCorrect>  
+
+/ ontrialbegin = [
+values.setnumber = values.correctset;
+]
+/stimulustimes=[0=correctstim; 4000=erasechar; 4500 = correctText; 6500=continueText]
+
+/ validkeys = (" ")
+
+</trial>
+
+<trial showCharacterIncorrect>  
+/ ontrialbegin = [
+values.setnumber = values.incorrectset;
+]
+/ stimulustimes = [0=incorrectstim; 4000=erasechar; 4500 =incorrectText; 6500 = continueText]
+/ validkeys = (" ")
+
+</trial>
+
+<trial showCharacterMixedCorrect>  
+/ ontrialbegin = [
+values.setnumber = values.mixedset;
+]
+/ stimulustimes = [0=mixedstim; 4000=erasechar; 4500 =correctText;  6500 = continueText]
+/ validkeys = (" ")
+
+</trial>
+
+<trial showCharacterMixedIncorrect>  
+/ ontrialbegin = [
+values.setnumber = values.mixedset;
+]
+/ stimulustimes = [0=mixedstim;4000=erasechar; 4500 =incorrectText; 6500 = continueText]
+/ validkeys = (" ")
+
+</trial>
+
+<trial showCharacterMixedNF>  
+/ ontrialbegin = [
+values.setnumber = values.mixedset;
+]
+/ stimulustimes = [0=mixedstim;4000=erasechar; 4500 =nofeedbackText;6500 = continueText]
+/ validkeys = (" ")
+
+</trial>
+
+
+list selectCharacters>
+/ items = (trial.showCharacter6, trial.showCharacter7, trial.showCharacter8, trial.showCharacter9)
+/ selectionmode = random
+</list>
+
+*correct-A
+
+<trial correctA>  
+/ validkeys = ("k", "d")
+
+/ responsetrial = ("k", showCharacterCorrect)
+/ responsetrial = ("d", showCharacterCorrect)
+
+/ stimulusframes = [1=eraseword;10=noreplace(zoomed)]
+/ posttrialpause = 1000
+</trial>
+
+
+<trial IncorrectB>  
+/ validkeys = ("k", "d")
+
+/ responsetrial = ("k", showCharacterIncorrect)
+/ responsetrial = ("d", showCharacterIncorrect)
+
+/ stimulusframes = [1=eraseword;10=noreplace(zoomed)]
+/ posttrialpause = 1000
+
+</trial>
+
+
+
+<trial CorrectC>  
+/ validkeys = ("k", "d")
+
+/ responsetrial = ("k", showCharacterMixedCorrect)
+/ responsetrial = ("d", showCharacterMixedCorrect)
+
+/ stimulusframes = [1=eraseword;10=noreplace(zoomed)]
+/ posttrialpause = 1000
+</trial>
+
+
+<trial IncorrectC>  
+/ validkeys = ("k", "d")
+
+/ responsetrial = ("k", showCharacterMixedIncorrect)
+/ responsetrial = ("d", showCharacterMixedIncorrect)
+
+/ stimulusframes = [1=eraseword;10=noreplace(zoomed)]
+/ posttrialpause = 1000
+</trial>
+
+<trial NofeedbackC>  
+/ validkeys = ("k", "d")
+
+/ responsetrial = ("k", showCharacterMixedNF)
+/ responsetrial = ("d", showCharacterMixedNF)
+
+/ stimulusframes = [1=eraseword;10=noreplace(zoomed)]
+/ posttrialpause = 1000
+</trial>
+
+
+<trial NofeedbackNoChar>  
+/ validkeys = ("k", "d")
+/ responsemessage = ("k",nofeedbackText,0)
+/ responsemessage = ("d",nofeedbackText,0)
+/ stimulusframes = [1=eraseword;10=noreplace(zoomed)]
+/ posttrialpause = 1500
+</trial>
+
+**********************set trials**********************
+<trial Correct75A>  
+/ validkeys = ("k", "d")
+
+/ responsetrial = ("k", showCharacterCorrect75)
+/ responsetrial = ("d", showCharacterCorrect75)
+
+/ stimulusframes = [1=eraseword;10=noreplace(zoomed)]
+/ posttrialpause = 1000
+</trial>
+
+
+<trial showCharacterCorrect75>  
+
+/ ontrialbegin = [
+values.setnumber = values.correctset;
+]
+/ stimulustimes = [0=correctstim;4000=erasechar; 4500 =correct75Text;6500 = continueText]
+
+/ validkeys = (" ")
+
+</trial>
+
+<trial Incorrect75B>  
+/ validkeys = ("k", "d")
+
+/ responsetrial = ("k", showCharacterCorrect25)
+/ responsetrial = ("d", showCharacterCorrect25)
+
+/ stimulusframes = [1=eraseword;10=noreplace(zoomed)]
+/ posttrialpause = 1000
+</trial>
+
+<trial showCharacterCorrect25>  
+
+/ ontrialbegin = [
+values.setnumber = values.incorrectset;
+]
+/ stimulustimes = [0=incorrectstim;4000=erasechar; 4500 =correct25Text;6500 = continueText]
+
+/ validkeys = (" ")
+
+</trial>
+
+<trial mixed50C>  
+/ validkeys = ("k", "d")
+
+/ responsetrial = ("k", showCharacterCorrect50)
+/ responsetrial = ("d", showCharacterCorrect50)
+
+/ stimulusframes = [1=eraseword;10=noreplace(zoomed)]
+/ posttrialpause = 1000
+</trial>
+
+<trial showCharacterCorrect50>  
+
+/ ontrialbegin = [
+values.setnumber = values.mixedset;
+]
+/ stimulustimes = [0=mixedstim;4000=erasechar; 4500 =correct50Text;6500 = continueText]
+
+/ validkeys = (" ")
+
+</trial>
+*****************************BLOCKS*****************************
+
+
+
+<block TrainNF>
+/ screencolor = (255, 255, 255)
+/ trials = [1-30=TrainNF]
+/ preinstructions=(page.instructTrainNF)
+</block>
+
+<block TestAsIs>
+/ screencolor = (255, 255, 255)
+/ trials = [1-108 = list.trials108]
+/ preinstructions = (page.instructtest)
+</block>
+
+<block TestNF>
+/ screencolor = (255, 255, 255)
+/ trials = [1-108 = list.trials108nf]
+/ preinstructions = (page.instructtestNF)
+</block>
+
+
+<block TestWeighted>
+/ screencolor = (255, 255, 255)
+/ trials = [1-108 = list.trials108IncorrectFirst]
+/ preinstructions = (page.instructtest)
+</block>
+
+<block TestPartial>
+/ screencolor = (255, 255, 255)
+/ trials = [1-108 = list.trials108Partial]
+/ preinstructions = (page.instructtestPartial)
+</block>
+
+<block demographics>
+/ screencolor = (255, 255, 255)
+/ trials = [1=demographics]
+</block>
+
+
+<list trials108>
+/ items = (trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.CorrectC,trial.CorrectC,trial.CorrectC,trial.CorrectC,trial.CorrectC,trial.CorrectC,
+trial.CorrectC,trial.CorrectC,trial.CorrectC,trial.CorrectC,trial.CorrectC,trial.CorrectC,
+trial.CorrectC,trial.CorrectC,trial.CorrectC,trial.CorrectC,trial.CorrectC,trial.CorrectC,
+trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,
+trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,
+trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,trial.IncorrectC,trial.IncorrectC)
+/ selectionmode = random
+/ selectionrate = always
+</list>
+
+<list trials108nf>
+/ items = (trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,trial.correctA,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,trial.IncorrectB,
+trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,
+trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,
+trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,
+trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,
+trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,
+trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC,trial.NofeedbackC)
+/ selectionmode = random
+/ selectionrate = always
+</list>
+
+<list trials108IncorrectFirst>
+/ items = (trial.IncorrectB,
+trial.IncorrectC,
+trial.IncorrectB,
+trial.IncorrectB,
+trial.correctA,
+trial.IncorrectC,
+trial.CorrectC,
+trial.IncorrectB,
+trial.IncorrectB,
+trial.correctA,
+trial.IncorrectB,
+trial.IncorrectC,
+trial.IncorrectB,
+trial.correctA,
+trial.IncorrectB,
+trial.IncorrectC,
+trial.correctA,
+trial.IncorrectB,
+trial.IncorrectC,
+trial.correctA,
+trial.CorrectC,
+trial.IncorrectB,
+trial.IncorrectB,
+trial.IncorrectB,
+trial.IncorrectC,
+trial.correctA,
+trial.CorrectC,
+trial.IncorrectB,
+trial.IncorrectB,
+trial.IncorrectC,
+trial.correctA,
+trial.IncorrectC,
+trial.IncorrectB,
+trial.IncorrectB,
+trial.correctA,
+trial.CorrectC,
+trial.IncorrectB,
+trial.IncorrectB,
+trial.IncorrectC,
+trial.IncorrectB,
+trial.correctA,
+trial.correctA,
+trial.IncorrectC,
+trial.IncorrectB,
+trial.IncorrectB,
+trial.correctA,
+trial.IncorrectB,
+trial.IncorrectB,
+trial.correctA,
+trial.IncorrectC,
+trial.CorrectC,
+trial.IncorrectC,
+trial.CorrectC,
+trial.IncorrectB,
+trial.CorrectC,
+trial.IncorrectC,
+trial.IncorrectB,
+trial.correctA,
+trial.CorrectC,
+trial.correctA,
+trial.correctA,
+trial.CorrectC,
+trial.IncorrectB,
+trial.correctA,
+trial.correctA,
+trial.IncorrectB,
+trial.IncorrectC,
+trial.correctA,
+trial.CorrectC,
+trial.correctA,
+trial.IncorrectB,
+trial.correctA,
+trial.IncorrectC,
+trial.IncorrectB,
+trial.correctA,
+trial.correctA,
+trial.CorrectC,
+trial.IncorrectB,
+trial.CorrectC,
+trial.correctA,
+trial.correctA,
+trial.IncorrectB,
+trial.IncorrectC,
+trial.correctA,
+trial.CorrectC,
+trial.correctA,
+trial.correctA,
+trial.IncorrectB,
+trial.IncorrectC,
+trial.correctA,
+trial.CorrectC,
+trial.IncorrectB,
+trial.CorrectC,
+trial.correctA,
+trial.IncorrectB,
+trial.correctA,
+trial.CorrectC,
+trial.correctA,
+trial.IncorrectB,
+trial.correctA,
+trial.correctA,
+trial.IncorrectC,
+trial.CorrectC,
+trial.IncorrectB,
+trial.correctA,
+trial.correctA,
+trial.CorrectC,
+trial.correctA)
+/ selectionmode = sequence
+/ selectionrate = always
+</list>
+
+<list trials108Partial>
+/ items = (block.Correct75A, block.Incorrect75A, block.Mixed50C,
+block.Correct75A, block.Incorrect75A, block.Mixed50C,
+block.Correct75A, block.Incorrect75A, block.Mixed50C,
+block.Correct75A, block.Incorrect75A, block.Mixed50C)
+/ selectionmode = random
+/ selectionrate = always
+</list>
+
+<block Correct75A>
+/ trials = [1-8=NofeedbackNoChar;9=Correct75A]
+
+</block>
+
+<block Incorrect75A>
+/ trials = [1-8=NofeedbackNoChar;9=Incorrect75B]
+
+</block>
+
+<block Mixed50C>
+/ trials = [1-8=NofeedbackNoChar;9=mixed50C]
+
+</block>
+
+
+*****************************EXPTS*****************************
+
+<expt asIs>
+/ onexptbegin = [
+values.correctset = list.setnumbers.nextvalue;
+values.incorrectset = list.setnumbers.nextvalue;
+values.mixedset = list.setnumbers.nextvalue;
+]
+/ blocks = [1=consent; 2=pleasant; 3=TrainNF; 4=block.correct60Block;5=TestAsIs; 6=pleasant;7=demographics;8=mturk]
+</expt>
